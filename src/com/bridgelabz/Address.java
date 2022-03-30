@@ -1,6 +1,8 @@
 package com.bridgelabz;
 
 public class Address {
+
+
     private String city, state;
     private long zip;
 
