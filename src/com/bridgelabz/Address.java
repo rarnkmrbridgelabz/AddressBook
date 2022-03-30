@@ -35,6 +35,5 @@ public class Address {
                 ", state='" + state + '\'' +
                 ", zip=" + zip +
                 '}';
-
     }
 }
