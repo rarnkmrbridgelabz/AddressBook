@@ -1,21 +1,25 @@
 package com.bridgelabz;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
-
 
 public class AddressBook implements AddressBookInterface {
 
     private final int NUM_OF_PEOPLE = 5;
+    public static int numberOfEntries = 0;
+    public String addressBookName;
+
     Scanner scannerObject = new Scanner(System.in);
     ContactPerson[]contactList = new ContactPerson[NUM_OF_PEOPLE];
-    public static int numberOfEntries = 0;
+
+    public String getAddressBookName() {
+        return addressBookName;
+    }
+    public void setAddressBookName(String addressBookName) {
+        this.addressBookName = addressBookName;
+    }
 
     @Override
     public void operation() {
-
-
 
         boolean moreChanges = true;
         do{
@@ -101,7 +105,6 @@ public class AddressBook implements AddressBookInterface {
             }
         }
 
-
     }
 
     public void editPerson() {
@@ -152,12 +155,9 @@ public class AddressBook implements AddressBookInterface {
                         address.setZip(zip);
                         break;
                 }
-
             }
-
         }
     }
-
 
     @Override
     public void deletePerson() {
@@ -184,13 +184,19 @@ public class AddressBook implements AddressBookInterface {
 
     @Override
     public void displayContents() {
-        System.out.println("----- Contents of the Address Book -----");
+        System.out.println("----- Contents of the Address Book : "+addressBookName+" -----");
         for(int index=0; index < numberOfEntries ; index++) {
             System.out.println(contactList[index]);
 
         }
         System.out.println("-----------------------------------------");
 
+    }
+
+
+    @Override
+    public String toString() {
+        return addressBookName;
     }
 
 }
